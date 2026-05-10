@@ -1,4 +1,3 @@
-import pickle
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -60,18 +59,26 @@ deliveries = pd.read_csv(
     low_memory=False
 
 )
+from src.feature_engineering import (
+    create_match_situation
+)
+
+from src.model_training import (
+    train_model
+)
+
 # =====================================================
-# LOAD ML MODEL
+# TRAIN MODEL
 # =====================================================
 
-with open(
+match_df = create_match_situation(
+    matches,
+    deliveries
+)
 
-    "models/win_predictor.pkl",
-
-    "rb"
-) as file:
-
-    model = pickle.load(file)
+model = train_model(
+    match_df
+)
 
 # =====================================================
 # TITLE

@@ -1,4 +1,4 @@
-import pickle
+
 import pandas as pd
 
 from sklearn.model_selection import (
@@ -133,26 +133,6 @@ def train_model(match_df):
         "\nModel Accuracy:",
         round(accuracy * 100, 2),
         "%"
-    )
-
-    # ================================================
-    # SAVE MODEL
-    # ================================================
-
-    with open(
-
-        "models/win_predictor.pkl",
-
-        "wb"
-    ) as file:
-
-        pickle.dump(
-            pipe,
-            file
-        )
-
-    print(
-        "\n✅ Model saved successfully!"
     )
 
     return pipe
