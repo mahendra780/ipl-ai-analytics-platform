@@ -7,6 +7,7 @@ from urllib.parse import urlencode
 from urllib.request import Request, urlopen
 
 
+
 CRICBUZZ_LIVE_BASE_URL = "https://cricbuzz-live.vercel.app"
 REQUEST_TIMEOUT_SECONDS = 12
 
